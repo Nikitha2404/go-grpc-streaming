@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/Nikitha2404/server-side-streaming/protogen/golang/streamingData";
+
+message DataRequest {
+    string id = 1;
+}
+
+message DataResponse {
+    string buffer = 1;
+    int32 part = 2;
+}
+
+service StreamingService {
+    rpc GetDataStreaming(DataRequest) returns (stream DataResponse) {} 
+}
+
